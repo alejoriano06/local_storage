@@ -1,52 +1,57 @@
-const formulario = document.getElementById('formulario');
-const input = document.getElementById('nombre');
-const saludo = document.getElementById('saludo');
+const formulario = document.getElementById('formulario-curso');
+const inputCurso = document.getElementById('curso');
+const inputProfesor = document.getElementById('profesor');
+const inputPrecio = document.getElementById('precio');
+const inputCiudad = document.getElementById('ciudad');
+const inputCupo = document.getElementById('cupo');
+const mensajeCurso = document.getElementById('mensaje-curso')
 const btnEliminar = document.getElementById('borrar');
-const titulo2 = document.getElementById('usuarioCreado');
 
 
-
-document.addEventListener('DOMContentLoaded', ()=>{
-    const tituloo2=localStorage.getItem("usuario");
-    titulo2.textContent="hola " + tituloo2 + " este es tu perfil";
-    
-})
-
-formulario.addEventListener("submit", (e)=>{
+formulario.addEventListener('submit', (e)=>{
     e.preventDefault();
-    const nombre = input.value.trim();
 
-    if(nombre===""){
-        alert("julian es gay, vulelva a ingresar")
+    const curso = inputCurso.value.trim();
+    const profesor = inputProfesor.value.trim();
+    const precio = inputPrecio.value.trim();
+    const ciudad = inputCiudad.value.trim();
+    const cupo = inputCupo.value.trim();
+
+    if(curso===""||profesor===""||precio===""||ciudad===""||cupo===""){
+        alert("por favor completa todos los campos");
         return;
     }
+    // en el ejercicio anterior era un solo valor, ahora estamos alimentando un objeto con sus diferentes claves y valor
+    const nuevoCurso = {
 
-    localStorage.setItem("usuario", nombre);
-    
-    saludo.textContent="bienvenido " + nombre;
-    input.value = "";
+        curso: curso,
+        profesor: profesor,
+        precio: precio,
+        ciudad: ciudad,
+        cupo: cupo
 
-})
 
-document.addEventListener("DOMContentLoaded", ()=>{
-
-    const usuarioGuardado = localStorage.getItem("usuario");
-    if(usuarioGuardado){
-        saludo.textContent="bienvenido usuario indefinido"
     }
-    
+
+    localStorage.setItem("curso", JSON.stringify(nuevoCurso));
+    formulario.reset();
+
 })
 
-btnEliminar.addEventListener('click', ()=>{
+document.addEventListener('DOMContentLoaded', () => {
+    const cursoCreado = localStorage.getItem('curso');
 
-    localStorage.removeItem("usaurio");
-    saludo.textContent="bienvenido usuario indefinido"
+    if (cursoCreado) {
+        const objetoCurso = JSON.parse(cursoCreado);
+        mensajeCurso.innerHTML = 
+            "Curso: " + objetoCurso.curso + "<br>" +
+            "Profesor: " + objetoCurso.profesor + "<br>" +
+            "Precio: " + objetoCurso.precio + "<br>" +
+            "Ciudad: " + objetoCurso.ciudad + "<br>" +
+            "Cupo: " + objetoCurso.cupo;
+    }
 });
 
-document.addEventListener('DOMContentLoaded', ()=>{
-    
-    const titulo2=localStorage.getItem("usurio");
-    titulo2.textContent="hola" + titulo2 + "este es tu perfil"
-    
-})
+
+
 
