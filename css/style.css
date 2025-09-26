@@ -1,0 +1,191 @@
+/* Google Fonts para un look moderno */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  color: #fff;
+}
+
+/* Título principal */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Contenedor del formulario */
+form {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2rem;
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  animation: fadeIn 0.9s ease-in-out;
+}
+
+/* Inputs */
+input {
+  padding: 0.9rem 1rem;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+}
+
+input::placeholder {
+  color: #ddd;
+}
+
+input:focus {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 8px #00c6ff;
+}
+
+/* Botones */
+button {
+  padding: 1rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00c6ff;
+}
+
+/* Mensaje del curso */
+#mensaje-curso {
+  margin-top: 2rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+  color: #00ffb3;
+  text-shadow: 0 0 10px rgba(0, 255, 179, 0.7);
+  animation: pulse 2s infinite;
+}
+
+/* Botón eliminar */
+#borrar {
+  margin-top: 1rem;
+  background: linear-gradient(90deg, #ff512f, #dd2476);
+}
+
+#borrar:hover {
+  box-shadow: 0 0 15px #ff2f6e;
+}
+
+/* Enlace */
+a {
+  margin-top: 2rem;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  color: #00c6ff;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #00ffb3;
+  text-shadow: 0 0 8px #00ffb3;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% { text-shadow: 0 0 5px #00ffb3; }
+  50% { text-shadow: 0 0 20px #00ffb3; }
+  100% { text-shadow: 0 0 5px #00ffb3; }
+}
+
+table {
+  width: 70%;
+  margin: 30px auto;
+  border-collapse: collapse;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 198, 255, 0.35);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(160deg, #1f1c2c, #2c2a40);
+  color: #f0f8ff; /* blanco azulado */
+}
+
+table thead {
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+table thead th {
+  padding: 14px 18px;
+  font-size: 15px;
+  border-bottom: 2px solid #00c6ff;
+  text-shadow: 0 0 6px rgba(0, 198, 255, 0.7);
+}
+
+table tbody tr {
+  transition: all 0.3s ease;
+}
+
+table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+table tbody tr:hover {
+  background: rgba(0, 198, 255, 0.15);
+  transform: scale(1.01);
+  box-shadow: 0 4px 15px rgba(0, 198, 255, 0.4);
+}
+
+table td {
+  padding: 12px 16px;
+  border: 1px solid #0072ff;
+  font-size: 14px;
+  color: #e0f7ff; /* celeste más notorio */
+  text-align: center;
+  text-shadow: 0 0 4px rgba(0, 114, 255, 0.6);
+}

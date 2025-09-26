@@ -33,18 +33,18 @@ formulario.addEventListener('submit', (e)=>{
 
     }
 
-    localStorage.setItem("curso", JSON.stringify(nuevoCurso));
-     const cursoCreado = localStorage.getItem('curso');
+    // Capturamos el arreglo existente en el local storage o lo creamos vacio si no existe previamente
 
-   
-        const objetoCurso = JSON.parse(cursoCreado);
-        mensajeCurso.innerHTML = 
-            "Curso: " + objetoCurso.curso + "<br>" +
-            "Profesor: " + objetoCurso.profesor + "<br>" +
-            "Precio: " + objetoCurso.precio + "<br>" +
-            "Ciudad: " + objetoCurso.ciudad + "<br>" +
-            "Cupo: " + objetoCurso.cupo;
-    
+    const cursosGuardados = JSON.parse(localStorage.getItem('cursos')) || [];
+
+    // agregamos al arreglo [] el curso {} 
+    // agregamos el arreglo nuevoCurso en cursos guardados
+
+    cursosGuardados.push(nuevoCurso);
+
+    localStorage.setItem('cursos', JSON.stringify(cursosGuardados));
+
+    localStorage.setItem("curso", JSON.stringify(nuevoCurso));
     formulario.reset();
 
 })
